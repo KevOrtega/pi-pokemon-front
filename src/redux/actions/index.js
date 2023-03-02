@@ -11,11 +11,7 @@ export const GET_NOTIFICATION = "GET_NOTIFICATION";
 export function getPokemonsStore(search, page) {
   return async function (dispatch) {
     return axios
-      .get(
-        `http://localhost:3001/pokemons?name=${search.value || ""}&types=${search.types || ""}&order=${search.order || ""}&page=${
-          page || 1
-        }`
-      )
+      .get(`/pokemons?name=${search.value || ""}&types=${search.types || ""}&order=${search.order || ""}&page=${page || 1}`)
       .then(({ data: { pokemons, pages } }) => dispatch({ type: GET_POKEMONS_STORE, payload: { search, pokemons, pages, page } }))
       .catch((_err) => dispatch(getNotification({ message: "pokemons not found", type: "error" })));
   };
@@ -24,7 +20,7 @@ export function getPokemonsStore(search, page) {
 export function getPokemonDetail(id) {
   return async function (dispatch) {
     return axios
-      .get(`http://localhost:3001/pokemons/${id}`)
+      .get(`/pokemons/${id}`)
       .then(({ data: pokemon }) => dispatch({ type: GET_POKEMON_DETAIL, payload: { pokemon, id } }))
       .catch((_err) => dispatch(getNotification({ message: `${id} not found`, type: "error" })));
   };
@@ -37,7 +33,7 @@ export function getPokemonSearch(search) {
 export function getPokemonTypes() {
   return async function (dispatch) {
     return axios
-      .get(`http://localhost:3001/types`)
+      .get(`/types`)
       .then(({ data: types }) => dispatch({ type: GET_POKEMON_TYPES, payload: types.map(({ name }) => name) }))
       .catch((_err) => dispatch(getNotification({ type: "error", message: "types not found. Please restart the website" })));
   };
@@ -84,7 +80,7 @@ export function getNewPokemon(pokemon) {
 
   return async function (dispatch) {
     return axios
-      .post(`http://localhost:3001/pokemons`, new_pokemon)
+      .post(`/pokemons`, new_pokemon)
       .then(() => dispatch({ type: GET_NEW_POKEMON }))
       .then(() => dispatch(getNotification({ type: "success", message: "pokemon successfully created" })))
       .catch((_err) => dispatch(getNotification({ type: "error", message: "create pokemon failed" })));

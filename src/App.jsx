@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import axios from "axios";
 
 import { getPokemonTypes } from "./redux/actions";
 
@@ -10,6 +11,8 @@ import PokemonDetail from "./layout/PokemonDetail";
 import CreatePokemon from "./layout/CreatePokemon";
 import Notification from "./molecules/Notification";
 import Header from "./molecules/Header";
+
+axios.defaults.baseURL = "http://localhost:3001/";
 
 function App() {
   // get types
