@@ -52,7 +52,7 @@ const ImageContainer = styled.div`
   align-self: flex-end;
   width: 40%;
   min-width: 300px;
-  transform: translate(19%);
+  transform: translate(10%, -5%);
 `;
 
 function Home() {
