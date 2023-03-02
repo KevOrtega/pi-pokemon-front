@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap");
+
+:root {
+  --color-mine-shaft: #333333;
+  --color-trinidad: #e3350d;
+  --color-flamingo: #ee6b2f;
+  --color-fruit-salad: #4dad5b;
+  --color-curious-blue: #30a7d7;
+  --color-gray: #919191;
+  --color-gray-semi-transparent: rgba(145, 145, 145, 0.3);
+  --color-wild-sand: #f5f5f5;
+  --color-white: #ffffff;
+
+  --weight-primary: 500;
+  --weight-secondary: 700;
+  --weight-tertiary: 900;
+}
+
+* {
+  font-size: 1em;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: var(--weight-primary);
+  overflow: hidden;
+  font-size: 2vmin;
+  background-color: var(--color-wild-sand);
+  color: var(--color-mine-shaft);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+#root {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+#root::-webkit-scrollbar {
+  width: 15px;
+}
+
+#root::-webkit-scrollbar-track {
+  background-color: var(--color-wild-sand);
+}
+
+#root::-webkit-scrollbar-thumb {
+  border: 3px solid var(--color-wild-sand);
+  border-radius: 10px;
+  background-color: var(--color-gray);
+}
