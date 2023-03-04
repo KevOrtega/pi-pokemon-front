@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getNewPokemon } from "../redux/actions";
+import { getNewPokemon, getNotification } from "../redux/actions";
 
 import CheckboxList from "./CheckboxList";
 import Button from "../atoms/Button";
@@ -36,7 +36,13 @@ function CreatePokemonForm() {
   });
   const [types, setTypes] = useState([]);
   const [image_preview, setImagePreview] = useState("");
-  const handleChange = ({ target: { name, value } }) => setAttributes({ ...attributes, [name]: value });
+  const handleChange = ({ target: { name, value } }) => {
+    if (name === "name" && value.length > 20) {
+      dispatch(getNotification({ message: "name cannot be longer than 20 characters", type: "error" }));
+      return setAttributes({ ...attributes, [name]: "" });
+    }
+    setAttributes({ ...attributes, [name]: value });
+  };
 
   const handleTypesChange = useCallback((types) => setTypes(types), [setTypes]);
 
