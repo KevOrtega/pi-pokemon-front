@@ -25,12 +25,12 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Notification position="right" />
+      <Notification position="right" />,
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pokemons" element={<Pokemons />} />
         <Route path="/pokemons/:id" element={<PokemonDetail />} />
-        <Route path="/createPokemon" element={<CreatePokemon />} />
+        <Route path="/createPokemon" element={<CreatePokemon />} />,
       </Routes>
     </BrowserRouter>
   );
